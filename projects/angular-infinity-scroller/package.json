@@ -1,6 +1,24 @@
 {
   "name": "angular-infinity-scrolling",
-  "version": "1.4.0",
+  "version": "1.5.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jayant061/angular-infinity-scroller"
+  },
+  "bugs": {
+    "url": "https://github.com/Jayant061/angular-infinity-scroller/issues"
+  },
+  "keywords": [
+    "Angular-infinity-scroller",
+    "infinity-scroller",
+    "Angular-infinite-scroller",
+    "Angular-infinite-scroll",
+    "infinte-scroll",
+    "infinite",
+    "Angular"
+  ],
+  "author": "Jayant Thakur",
+  "license": "ISC",
   "peerDependencies": {
     "@angular/common": "^19.0.0",
     "@angular/core": "^19.0.0"

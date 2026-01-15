@@ -16,7 +16,9 @@
     "Angular-infinite-scroll",
     "infinte-scroll",
     "infinite",
-    "Angular"
+    "Angular",
+    "ngx-infinite-scroller",
+    "ng-infinite-scroll"
   ],
   "author": "Jayant Thakur",
   "license": "ISC",

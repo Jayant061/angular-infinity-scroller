@@ -37,7 +37,7 @@ onScrolled - output that accept a voidFunction to be invoked on emit
 ```
 
 ```ruby
-<div class='scrollable-parent' angularInfinityScroller [scrollDistance]="4" (onScrolled)="handleScroll()">
+<div class='scrollable-parent' angularInfinityScroller [scrollDistance]="2" (onScrolled)="handleScroll()">
 </div>
 ```
 

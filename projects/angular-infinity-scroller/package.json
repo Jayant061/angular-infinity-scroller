@@ -1,6 +1,6 @@
 {
   "name": "angular-infinity-scrolling",
-  "version": "1.5.3",
+  "version": "2.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/Jayant061/angular-infinity-scroller"
@@ -16,7 +16,9 @@
     "Angular-infinite-scroll",
     "infinte-scroll",
     "infinite",
-    "Angular"
+    "Angular",
+    "ngx-infinite-scroller",
+    "ng-infinite-scroll"
   ],
   "author": "Jayant Thakur",
   "license": "ISC",

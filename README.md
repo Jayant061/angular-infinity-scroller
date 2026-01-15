@@ -27,9 +27,10 @@ followed by consuming the directive in example.component.
 ### Currently Directive has 2 properties
 
 ```
-scrollDistance - input which accpet a number between 1  and 10.
+scrollDistance - input which accpet a number between 1  and 9.
 Describing to emit the data if scrollable height is less than or equal to (number*10) percent.
 [scrollDistance]='2' value will be emitted if scrollable height is less than or 20%.
+NOTE: if invalid scrollDistance is given, then default value of 2 will be used for calculation;
 
 onScrolled - output that accept a voidFunction to be invoked on emit
 (onScrolled)="handleScroll()"

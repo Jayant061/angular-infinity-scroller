@@ -1,4 +1,4 @@
-import { Directive, ElementRef, inject, input, output } from '@angular/core';
+import { computed, Directive, ElementRef, inject, input, output, signal } from '@angular/core';
 
 @Directive({
   selector: '[angularInfinityScroller]',
@@ -6,34 +6,38 @@ import { Directive, ElementRef, inject, input, output } from '@angular/core';
 })
 export class AngularInfinityScrollerDirective {
 
-  constructor() { }
-  public scrollDistance = input<number>();
+  constructor() {
+    this.onScroll = this.onScroll.bind(this);
+  }
+  public scrollDistance = input<number>(2);
+  private readonly scrollDistanceCoefficient = computed(() => {
+    const val = this.scrollDistance();
+    if (val > 9) {
+      return 2
+    }
+    return val;
+  })
   public onScrolled = output();
-  private el:ElementRef<HTMLDivElement> = inject(ElementRef);
-  private prevScrollHeight:number = 0;
+  private el: ElementRef<HTMLDivElement> = inject(ElementRef);
+  private prevScrollHeight = signal<number>(0);
+
+
   ngAfterViewInit(): void {
-    this.el.nativeElement.addEventListener('scroll',this.onScroll.bind(this));
+    this.el.nativeElement.addEventListener('scroll', this.onScroll);
   }
 
-  ngOnDestroy(): void {
-    this.el.nativeElement.removeEventListener('scroll',this.onScroll.bind(this));
+  private onScroll(): void {
+    const height = Math.floor(this.el?.nativeElement.scrollHeight - this.el.nativeElement.clientHeight);
+    const scrollValue = Math.floor(this.el?.nativeElement.scrollTop);
+    const unexploredContentHeight = height - this.prevScrollHeight();
+    const emitTriggerHeight = this.prevScrollHeight() + Math.ceil((1 - ((this.scrollDistanceCoefficient()) / 10)) * unexploredContentHeight);
+    if (scrollValue >= (emitTriggerHeight) && this.prevScrollHeight() !== height) {
+      this.onScrolled.emit();
+      this.prevScrollHeight.set(height);
+    }
   }
-  private isEmit:boolean = true;
-  private onScroll():void{
-      const height = Math.floor(this.el?.nativeElement.scrollHeight - this.el.nativeElement.clientHeight);
-      const scrollValue = Math.floor(this.el?.nativeElement.scrollTop);
-      const emitTriggerHeight  = Math.ceil((1-((this.scrollDistance()??2)/10))*height);
-      if(scrollValue>= (emitTriggerHeight) && !this.isEmit){
-        return;
-      }
-      else if(scrollValue < (emitTriggerHeight)){
-        this.isEmit = true;
-      }
-      if(scrollValue>= (emitTriggerHeight) && this.prevScrollHeight !== height){
-        this.onScrolled.emit();
-        this.prevScrollHeight = height;
-        this.isEmit = false;
-      }
+  ngOnDestroy(): void {
+    this.el.nativeElement.removeEventListener('scroll', this.onScroll);
   }
 
 }

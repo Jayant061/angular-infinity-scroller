@@ -30,6 +30,9 @@ export class AngularInfinityScrollerDirective {
     const height = Math.floor(this.el?.nativeElement.scrollHeight - this.el.nativeElement.clientHeight);
     const scrollValue = Math.floor(this.el?.nativeElement.scrollTop);
     const unexploredContentHeight = height - this.prevScrollHeight();
+    if (unexploredContentHeight < 0) {// if the list item quantity reduced (applying filter)
+      this.prevScrollHeight.set(0);
+    }
     const emitTriggerHeight = this.prevScrollHeight() + Math.ceil((1 - ((this.scrollDistanceCoefficient()) / 10)) * unexploredContentHeight);
     if (scrollValue >= (emitTriggerHeight) && this.prevScrollHeight() !== height) {
       this.onScrolled.emit();

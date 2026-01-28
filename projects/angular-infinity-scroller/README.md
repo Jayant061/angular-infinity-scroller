@@ -1,47 +1,120 @@
-## Thank you for using angular -infinity-scroller for infinite scrolling.
+# Angular Infinite Scroller
 
-> [!TIP]
-> Note: Current version of package is compatible with angular version above 17
+A **lightweight, high‑performance infinite scrolling directive for Angular applications**, designed to work smoothly with modern Angular versions and SSR setups.
 
-go to the directory, open terminal and and install package using `npm i angular-infinity-scroller`
-Go to the ts file of component e.g. example.component.ts and add AngularInfinityScrollerDirective inside imports.
+---
 
-```ruby
-import {AngularInfinityScrollerDirective} from "angular-infinity-scroller";
+## ✨ Features
+
+- 🚀 Simple directive‑based API
+- ⚡ High‑performance scroll detection
+- 🧩 Works with standalone components
+- 🌐 Compatible with Angular 17+
+- 📦 Zero external dependencies
+
+---
+
+## 📦 Installation
+
+Install the package using npm:
+
+```bash
+npm install angular-infinity-scroller
+```
+
+---
+
+## 🚀 Getting Started
+
+Import `AngularInfinityScrollerDirective` into your component and add it to `imports`.
+
+### Example Component
+
+```ts
+import { Component } from '@angular/core';
+import { AngularInfinityScrollerDirective } from 'angular-infinity-scroller';
 
 @Component({
   selector: 'app-example',
-  imports: [
-    AngularInfinityScrollerDirective,
-  ],
-  templateUrl: './exaple.component.html',
-  styleUrl: './exaple.component.scss',
+  standalone: true,
+  imports: [AngularInfinityScrollerDirective],
+  templateUrl: './example.component.html',
+  styleUrl: './example.component.scss',
 })
-export class ExampleComponent{}
+export class ExampleComponent {
+  handleScroll() {
+    // load more data here
+  }
+}
 ```
 
-```
-followed by consuming the directive in example.component.
-```
+---
 
-### Currently Directive has 2 properties
+## 🧪 Usage
 
-```
-scrollDistance - input which accpet a number between 1  and 9.
-Describing to emit the data if scrollable height is less than or equal to (number*10) percent.
-[scrollDistance]='2' value will be emitted if scrollable height is less than or 20%.
-NOTE: if invalid scrollDistance is given, then default value of 2 will be used for calculation;
+Apply the directive to a scrollable container.
 
-onScrolled - output that accept a voidFunction to be invoked on emit
-(onScrolled)="handleScroll()"
-```
-
-```ruby
-<div class='scrollable-parent' angularInfinityScroller [scrollDistance]="2" (onScrolled)="handleScroll()">
+```html
+<div
+  class="scrollable-parent"
+  angularInfinityScroller
+  [scrollDistance]="2"
+  (onScrolled)="handleScroll()"
+>
 </div>
 ```
 
+---
+
+## ⚙️ Directive API
+
+### `scrollDistance` (Input)
+
+- **Type:** `number`
+- **Range:** `1 – 9`
+- **Default:** `2`
+
+Defines when the scroll event should trigger.
+
+Example:
+- `[scrollDistance]="2"` → emits when remaining scroll height is **≤ 20%**
+
+If an invalid value is provided, the directive automatically falls back to the default value.
+
+---
+
+### `onScrolled` (Output)
+
+- **Type:** `() => void`
+
+Emits when the scroll threshold is reached.
+
+```html
+(onScrolled)="handleScroll()"
 ```
-Any suggestions or contributions are most welcome. If you are facing any issue with the packge please raise the issue in the github, I'll happt to resolve the bugs.
-Happy coding!!
-```
+
+---
+
+## 🔧 Compatibility
+
+- ✅ Angular **17 and above**
+- ✅ Standalone components
+- ✅ SSR‑friendly
+
+---
+
+## 🤝 Contributing
+
+Suggestions, improvements, and pull requests are welcome.
+
+If you encounter any issues, please raise them on GitHub:
+👉 https://github.com/Jayant061/angular-infinity-scroller/issues
+
+---
+
+## ⭐ Support
+
+If this package helps you, please consider starring the repository ⭐
+
+Happy coding! 🚀
+

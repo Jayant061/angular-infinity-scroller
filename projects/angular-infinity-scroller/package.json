@@ -1,33 +1,45 @@
 {
   "name": "angular-infinity-scrolling",
-  "version": "2.1.1",
+  "version": "2.2.1",
+  "description": "High-performance infinite scrolling directive for Angular applications with SSR support.",
+  "homepage": "https://github.com/Jayant061/angular-infinity-scroller",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Jayant061/angular-infinity-scroller"
+    "url": "git+https://github.com/Jayant061/angular-infinity-scroller.git"
   },
   "bugs": {
     "url": "https://github.com/Jayant061/angular-infinity-scroller/issues"
   },
   "keywords": [
-    "Angular-infinity-scrolling",
-    "Angular-infinity-scroller",
-    "infinity-scroller",
-    "Angular-infinite-scroller",
-    "Angular-infinite-scroll",
-    "infinte-scroll",
-    "infinite",
-    "Angular",
-    "ngx-infinite-scroller",
-    "ng-infinite-scroll"
+    "angular",
+    "angular-library",
+    "angular-directive",
+    "angular-ssr",
+    "infinite-scroll",
+    "infinite-scrolling",
+    "infinite-scroller",
+    "scroll",
+    "scrolling",
+    "virtual-scroll",
+    "pagination",
+    "lazy-loading",
+    "ngx-infinite-scroll",
+    "angular-infinite-scroll"
   ],
-  "author": "Jayant Thakur",
+  "author": {
+    "name": "Jayant Thakur",
+    "url": "https://github.com/Jayant061"
+  },
   "license": "ISC",
+  "sideEffects": false,
   "peerDependencies": {
-    "@angular/common": "^19.0.0",
-    "@angular/core": "^19.0.0"
+    "@angular/core": ">=16.0.0 <21.0.0",
+    "@angular/common": ">=16.0.0 <21.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false
+  "engines": {
+    "node": ">=18"
+  }
 }

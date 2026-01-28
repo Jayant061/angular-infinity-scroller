@@ -1,6 +1,6 @@
 {
   "name": "angular-infinity-scrolling",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "High-performance infinite scrolling directive for Angular applications with SSR support.",
   "homepage": "https://github.com/Jayant061/angular-infinity-scroller",
   "repository": {

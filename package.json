@@ -6,7 +6,13 @@
     "start": "ng serve",
     "build": "ng build angular-infinity-scroller",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:lib": "ng build angular-infinity-scroller",
+    "publish:lib": "npm run build:lib && cd dist/angular-infinity-scroller && npm publish",
+    "publish:lib:public": "npm run build:lib && cd dist/angular-infinity-scroller && npm publish --access public",
+    "upgradePatch":"cd projects/angular-infinity-scroller && npm version patch &&  cd ../../ && npm run build",
+    "upgradeMinor":"cd projects/angular-infinity-scroller && npm version minor &&  cd ../../ && npm run build",
+    "upgradeMajor":"cd projects/angular-infinity-scroller && npm version major &&  cd ../../ && npm run build"
   },
   "private": true,
   "dependencies": {

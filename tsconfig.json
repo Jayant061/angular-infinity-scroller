@@ -8,6 +8,7 @@
         "./dist/angular-infinity-scroller"
       ]
     },
+    "rootDir": "./projects/angular-infinity-scroller/src",
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
